@@ -8,13 +8,17 @@ export interface IUser extends Document {
 const userSchema = new Schema({
   email: {
     type: String,
-    required: true,
+    required: [true, "Enter Email Field"],
     unique: true,
   },
   password: {
     type: String,
-    required: true,
+    required: [true, "Enter Password Field"],
   },
-});
+},
+  {
+    timestamps: true,
+  }
+);
 
 export default model<IUser>("User", userSchema);

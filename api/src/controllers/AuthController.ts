@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import User, { IUser } from "../models/User";
 import validator from "validator";
 
-export async function register(req: Request, res: Response): Promise<void> {
+export const register = async (req: Request, res: Response): Promise<void>  => {
   const { email, password } = req.body;
 
   if (!email || !validator.isEmail(email)) {
@@ -56,7 +56,7 @@ export async function register(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function login(req: Request, res: Response) {
+export const login = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
 
